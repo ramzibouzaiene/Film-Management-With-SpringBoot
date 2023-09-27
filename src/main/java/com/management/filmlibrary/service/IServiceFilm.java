@@ -10,4 +10,5 @@ public interface IServiceFilm {
     public List<Film> findAllFilms();
     public Film updateFilm(Film f);
     public void deleteFilm(int id);
+    public List<Film> findFilmByCategory(int id);
 }

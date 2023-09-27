@@ -35,4 +35,9 @@ public class ServiceFilm implements IServiceFilm{
     public Film updateFilm(Film f) {
         return filmRepository.save(f);
     }
+
+    @Override
+    public List<Film> findFilmByCategory(int id) {
+        return filmRepository.findByCategoryId(id);
+    }
 }
