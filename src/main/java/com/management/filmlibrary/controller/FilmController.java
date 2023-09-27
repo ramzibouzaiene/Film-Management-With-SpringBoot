@@ -15,6 +15,7 @@ import java.util.List;
 public class FilmController {
     @Autowired
     IServiceFilm iServiceFilm;
+    @Autowired
     ICategoryFilm iCategoryFilm;
     @GetMapping("/all")
     public String listeFilms(Model model){

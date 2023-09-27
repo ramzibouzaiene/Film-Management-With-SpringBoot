@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Films List</title>
@@ -29,8 +29,8 @@
                 <td th:text="${f.year}"></td>
                 <td th:text="${f.category.name}"></td>
                 <td>
-                    <a th:href="@{/film/delete/{id} (id=${f.id})}" class="btn btn-outline-danger"
-                    onclick="return confirm('Are you sure you want to delete this film ?')">Delete</a>
+                    <a th:href="@{'/film/delete/' + ${f.id}}" class="btn btn-outline-danger"
+                       onclick="return confirm('Are you sure you want to delete this film ?')">Delete</a>
                 </td>
             </tr>
             </tbody>
