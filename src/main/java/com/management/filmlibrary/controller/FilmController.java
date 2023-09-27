@@ -4,6 +4,7 @@ import com.management.filmlibrary.entities.Film;
 import com.management.filmlibrary.service.ICategoryFilm;
 import com.management.filmlibrary.service.IServiceFilm;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -22,7 +23,7 @@ public class FilmController {
         model.addAttribute("films", iServiceFilm.findAllFilms());
         return "display";
     }
-    @PostMapping("categoriy")
+    @PostMapping("category")
     public String getAllFilmsByCategoryId(Model model,int id){
         model.addAttribute("films", iServiceFilm.findFilmByCategory(id));
         return "display";
@@ -47,9 +48,10 @@ public class FilmController {
         model.addAttribute("categories",iServiceFilm.findFilmByCategory(id) );
         model.addAttribute("film",iServiceFilm.findFilmById(id) );
     }
-    @PostMapping("/update")
-    public String update(Film f){
-        iServiceFilm.updateFilm(f);
+    @GetMapping("/update/{id}")
+    public String update(Model model,@PathVariable int id){
+        model.addAttribute("categories",iServiceFilm.findFilmByCategory(id) );
+        model.addAttribute("film",iServiceFilm.findFilmById(id) );
         return "update";
     }
 }
